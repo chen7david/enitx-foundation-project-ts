@@ -1,1 +1,2 @@
-# foundation-ts
+# Foundation TS
+Foundation TS is a minimalist TypeScript project that is meticulously configured with essential packages and pre-set functionalities. This preconfigured setup enables you to spent less time on configuring your project, and more time on building your application.
