@@ -7,9 +7,13 @@ export enum Stages {
   STAGING = 'staging'
 }
 
-interface IBaseConfig {
+type IBaseConfig = {
   enviroment: Stages
   debug: boolean
+}
+
+type IConfig = IBaseConfig & {
+  dbUrl: string
 }
 
 const getEnviromentStage = () => {
@@ -21,7 +25,8 @@ const getEnviromentStage = () => {
 const stage = getEnviromentStage()
 dotenv.config({ path: path.resolve(__dirname, `../.env.${stage}`) })
 
-export const config: IBaseConfig = {
+export const config: IConfig = {
   enviroment: stage,
-  debug: stage === Stages.DEVELOPMENT ? true : false
+  debug: stage === Stages.DEVELOPMENT ? true : false,
+  dbUrl: process.env.DB_URL || ''
 }
